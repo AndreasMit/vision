@@ -10,6 +10,8 @@ from cv_bridge import CvBridge, CvBridgeError #convert Image to CV format
 from nav_msgs.msg import Odometry
 import math
 from math import *
+import matplotlib
+matplotlib.use('agg')
 import matplotlib.pyplot as plt
 
 
@@ -30,7 +32,7 @@ class line_detector:
 		self.cv = 240.5
 		self.ax = 252.075
 		self.ay = 252.075 
-		self.Z = 5
+		self.Z = 7
 		self.virtual_box = np.array([[0, 0], [0,0], [0,0], [0,0]])
 		self.line = 0
 		self.bridge = CvBridge()
@@ -110,9 +112,9 @@ class line_detector:
 				# self.rdists.append(distance_y_real)
 				if (self.counter % 20 == 0):
 					plt.plot(self.dists)
-					plt.plot(self.phis)
+					# plt.plot(self.phis)
 					plt.grid()
-					# plt.savefig('distances16.png')
+					plt.savefig('distances20hz.png')
 				print(angle)
 			# print(distance_y, angle)
 
