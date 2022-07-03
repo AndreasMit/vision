@@ -114,7 +114,7 @@ class line_detector:
 					plt.plot(self.dists)
 					# plt.plot(self.phis)
 					plt.grid()
-					plt.savefig('distances20hz.png')
+					# plt.savefig('distances20hz.png')
 				print(angle)
 			# print(distance_y, angle)
 
@@ -127,8 +127,8 @@ class line_detector:
 		cv.drawContours(image, [self.virtual_box], 0, (0, 0, 255), 1)
 		cv.line(image, tuple(self.virtual_box[self.line]), tuple(self.virtual_box[(self.line+1)%4]), (0, 255, 0), 1)
 		# y-roll axis testing
-		cv.line(image, tuple(self.center), (self.box_center[0], self.center[1]), (255, 0, 0), 2)
-		cv.line(image, (self.center[0], self.center[1]-4), (self.real_center[0], self.center[1]-4), (0, 255, 0), 2)
+		# cv.line(image, tuple(self.center), (self.box_center[0], self.center[1]), (255, 0, 0), 2)
+		# cv.line(image, (self.center[0], self.center[1]-4), (self.real_center[0], self.center[1]-4), (0, 255, 0), 2)
 		# x-pitch axis testing
 		# cv.line(image, tuple(self.center), (self.center[0], self.box_center[1]), (255, 0, 0), 2)
 		# cv.line(image, (self.center[0]-4, self.center[1]), (self.center[0]-4, self.real_center[1]), (0, 255, 0), 2)
