@@ -71,5 +71,6 @@ src/train_mobilenet/ResizedFr
 src/train_mobilenet/CMasks
 src/train_mobilenet/TestFr
 src/train_mobilenet/TestM
+src/train_mobilenet/.ipynb_checkpoints
 
 
