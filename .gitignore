@@ -51,3 +51,25 @@ qtcreator-*
 CATKIN_IGNORE
 
 .catkin_workspace
+
+src/train_mobilenet/AugFr
+src/train_mobilenet/AugMasks
+src/train_mobilenet/AugTestFr
+src/train_mobilenet/AugTestM
+
+src/train_mobilenet/displayfrmasks
+src/train_mobilenet/displayfrmasks_aug
+src/train_mobilenet/displayfrmasks_resized
+src/train_mobilenet/frames
+src/train_mobilenet/FrPNG
+src/train_mobilenet/Labels
+src/train_mobilenet/Masks
+src/train_mobilenet/outputs
+src/train_mobilenet/ResizedMasks
+
+src/train_mobilenet/ResizedFr
+src/train_mobilenet/CMasks
+src/train_mobilenet/TestFr
+src/train_mobilenet/TestM
+
+
