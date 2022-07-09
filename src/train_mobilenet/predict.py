@@ -1,4 +1,5 @@
-from keras_segmentation.predict import predict_multiple
+from keras_segmentation.predict import predict, predict_multiple
+
 # load and evaluate a saved model
 from numpy import loadtxt
 from keras.models import load_model
@@ -26,16 +27,20 @@ gpu = tf.test.gpu_device_name()
 print("The following GPU devices are available: %s" % tf.test.gpu_device_name())
 
 
-
-
-predict_multiple( 
-checkpoints_path="mobilenet_checkpoints", 
-inp_dir="./zed_recording_09_02_2022_session_1",
-out_dir="./outputs/zed_recording_09_02_2022_session_1/" 
+predict( 
+	checkpoints_path="mobilenet_checkpoints/mobilenet", 
+	inp="/home/andreas/andreas/frames_summit/frame0011.png", 
+	out_fname="./outputs/summitsim.png" 
 )
 
-predict_multiple( 
-checkpoints_path="mobilenet_segnet_no_aug", 
-inp_dir="./zed_recording_09_02_2022_session_1",
-out_dir="./outputs/zed_recording_09_02_2022_session_1_no_aug/" 
-)
+# predict_multiple( 
+# 	checkpoints_path="mobilenet_checkpoints/mobilenet", 
+# 	inp_dir="./frames/",
+# 	out_dir="./outputs/summit/" 
+# )
+
+# predict_video(
+# 	checkpoints_path="mobilenet_checkpoints", 
+# 	inp="/home/andreas/andreas/mitakidis_summit_zed_recording_23_06_2022_session_1.mp4",
+# 	output="./outputs/summitvideo.mp4" 
+# )
