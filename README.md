@@ -5,3 +5,4 @@ Contains in its /src folder the packages below:
 
 vision_opencv -> necessary for ROS to opencv format conversion. \
 color_detector -> used for the detection of the pavement in the static contour experiment.
+segment_detector -> used for the detection of Summit XL.

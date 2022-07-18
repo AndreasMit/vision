@@ -34,6 +34,8 @@ class box_detector:
     with graph.as_default():
     	pr, seg_img = predict( model=mdl, inp=cv_image)
     segimg = seg_img.astype(np.uint8)
+    # cv2.imshow('maks',segimg)
+    # cv2.waitKey(30)
 
     # create combo image
     red_mask = np.zeros(cv_image.shape, np.uint8)
@@ -44,14 +46,29 @@ class box_detector:
 
     #create box
     mask = cv2.inRange(segimg, (130, 130, 130), (255, 255, 255))
-    kernel = np.ones((1, 1), np.uint8)
-    mask = cv2.erode(mask, kernel, iterations=3)
+    kernel = np.ones((6, 6), np.uint8)
+    # mask = cv2.erode(mask, kernel, iterations=3)
     mask = cv2.dilate(mask, kernel, iterations=3)
+
+    # gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
+    # masked = cv2.bitwise_and(gray, mask)
+    # masked = np.zeros(cv_image.shape, np.uint8)
+    # masked[:,:,0] = cv2.bitwise_and(cv_image[:,:,0], mask)
+    # masked[:,:,1] = cv2.bitwise_and(cv_image[:,:,1], mask)
+    # masked[:,:,2] = cv2.bitwise_and(cv_image[:,:,2], mask)
+    # cv2.imshow('maks',masked)
+    # cv2.waitKey(30)
 
     contours_blk, _ = cv2.findContours(mask.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     areas = [cv2.contourArea(c) for c in contours_blk]
-    index = np.argmax(areas)
-  
+    if len(contours_blk) > 0:
+      index = np.argmax(areas)
+    
+    # for i, c in enumerate(contours_blk):
+    #   cv2.drawContours(masked, contours_blk, i, (255*((i+1)%3==0), 255*((i%3)==0), 255*((i+2)%3==0) ), 5)
+    #   cv2.imshow('mask',masked)
+    #   cv2.waitKey(30)
+
     if len(contours_blk) > 0 and areas[index] > 300 and areas[index] < 10000:
         # Box creation for the detected coastline
         box = cv2.minAreaRect(contours_blk[index])

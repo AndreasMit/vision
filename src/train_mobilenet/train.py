@@ -22,7 +22,7 @@ model.compile(optimizer='adadelta', loss='categorical_crossentropy', metrics=['a
 model.train(
     train_images =  "ResizedFr/",
     train_annotations = "CMasks/",
-    checkpoints_path = "mobilenet_checkpoints/mobilenet" , epochs=50,
+    checkpoints_path = "mobilenet_checkpoints/mobilenets" , epochs=50,
     batch_size=10,
     verify_dataset=True,
     validate=True,
