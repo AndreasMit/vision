@@ -34,7 +34,7 @@ using keras-segmenation mobilenet.
 ## Train dataset
 
 * using https://github.com/divamgupta/image-segmentation-keras
-* use the virtual environment created [here](https://github.com/AndreasMit/stalker/blob/main/build.md)
+* use the virtual environment created in build.md .
 * Run 5.ModelTrain or train.py that trains on the dataset for a number of epochs.
 * Use 6.Predict or predict.py that predicts the masks of frames and saves them to folder 'outputs'.
 
